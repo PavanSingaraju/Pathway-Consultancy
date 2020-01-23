@@ -58,3 +58,47 @@ $username = $_SESSION['username'];
       </div>
     </div>
   </nav>
+  
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in" style="color:#ff4500 ">Welcome To Pathway!</div>
+        <div class="intro-heading text">Work With a Consultancy That Gets It.</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        <br>
+        <br>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">Your dedicated Pathway counsellor will work with you closely to prepare you for your study abroad journey and help you every step of the way.</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-6">
+          <span class="fa-stack fa-4x" >
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-book fa-stack-1x fa-inverse" ></i>
+          </span>
+          <h4 class="service-heading"><a href="#studentServices.html">Student Services</a></h4>
+          <p class="text-muted">Talking with an Education Counsellor from Pathway Consultancy can help. You can tell us your career goals and we’ll provide you with expert guidance on the study choices that will get you there.</p>
+        </div>
+
+        <div class="col-md-6">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-plane-arrival fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading"><a href="#migrationServices.html"> Migration Services</a></h4>
+          <p class="text-muted">Applying for a visa to study or live anywhere can be a confusing and complicated process with the ever-changing rules and documentation requirements. Our team of registered and experienced migration agents can offer comprehensive guidance and end to end management of your visa application for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
