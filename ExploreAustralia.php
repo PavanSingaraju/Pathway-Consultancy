@@ -1,4 +1,4 @@
-DOCTYPE html>
+<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@ DOCTYPE html>
         a{color: #ff4500;}
         img{width: 375px; min-height: 250px; margin-bottom: 10px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important; border:6px solid #f7f7f7;}
     </style>
-    </head>
+</head>
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -57,3 +57,88 @@ DOCTYPE html>
             </div>
         </div>
     </nav>
+<!-------------------Main Content------------------------------>
+
+    <h3>Top Universities in Australia 2020</h3>
+
+        <?php
+        $host ="localhost";
+        $uname = "root";
+        $pwd = '';
+        $db_name ="pathwayconsultancy";
+
+        $file_path = 'photo/';
+        $result = mysqli_connect($host,$uname,$pwd) or die("Could not connect to database." .mysqli_error());
+        mysqli_select_db($result,$db_name) or die("Could not select the databse." .mysqli_error());
+        $image_query = mysqli_query($result,"select name,img,url,world_ranking,description from universities where country = 'Australia'");
+        while($rows = mysqli_fetch_array($image_query))
+        {
+
+            $img_name = $rows['name'];
+            $img_src = $rows['img'];
+            $siteUrl = $rows['url'];
+            $ranking = $rows['world_ranking'];
+            $desc = $rows['description'];
+
+            ?>
+            <div class="container main">
+                <div class="img-box">
+
+
+                <div class="img-block">
+                <img src="<?php echo $img_src; ?>" alt="" title="<?php echo $img_name; ?>" width="300" height="200" class="img-responsive" /><p><strong><a href="<?php echo $siteUrl;?>"><?php echo $img_name; ?></strong></a></p><p><strong>World Ranking : <?php echo $ranking;?></strong></p></div>
+                <br>
+                <p style="margin-left:390px"><?php echo $desc; ?></p>
+                </div>
+            </div>
+
+
+
+            <?php
+        }
+        ?>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Pathway Consultancy 2020</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/agency.min.js"></script>
+</body>
+</html>
