@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2020 at 12:50 PM
+-- Generation Time: Feb 04, 2020 at 01:35 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.2.23
 
@@ -40,7 +40,7 @@ CREATE TABLE `shortlisteduni` (
 --
 
 CREATE TABLE `universities` (
-  `uni_id` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
@@ -54,14 +54,14 @@ CREATE TABLE `universities` (
 -- Dumping data for table `universities`
 --
 
-INSERT INTO `universities` (`uni_id`, `name`, `country`, `url`, `city`, `world_ranking`, `img`, `description`) VALUES
+INSERT INTO `universities` (`id`, `name`, `country`, `url`, `city`, `world_ranking`, `img`, `description`) VALUES
 (1, 'Australian National University', 'Australia', 'https://www.anu.edu.au/', 'canberra', 24, 'img/uni_aus/anu.jpg', 'Established in 1946, the Australian National University (ANU) was originally created as a postgraduate research university by the Parliament of Australia. It is located in Canberra, Australia’s capital city and seat of government. \r\n\r\nIt counts six Nobel prizewinners among its faculty and alumni, and is even run by a Nobel laureate. Brian Schmidt, who won the 2011 Nobel Prize in Physics (with Saul Perlmutter and Adam Riess) for providing evidence that the expansion of the universe is accelerating, is the institution’s vice-chancellor.\r\n\r\nThe university has many partnerships with international universities, including Yale University, the University of Oxford, ETH Zurich, and the National University of Singapore.  '),
 (2, 'University of Melbourne', 'Australia', 'https://www.unimelb.edu.au/', 'Melbourne', 48, 'img/uni_aus/uom.jpg', 'The University of Melbourne was founded in 1853, making it the second oldest in the country (keep reading to find out the oldest).\r\n\r\nIt is home to 47,000 students and 6,500 members of staff, and has 280,000 alumni around the world (some 15 per cent of whom live outside Australia).\r\n\r\nMore than 12,000 international students are enrolled at the University of Melbourne, and if you do get a place there, you will be joining students from 130 different countries.\r\n\r\nYou will also be rubbing shoulders with some pretty famous scholars. Nobel prizewinner Peter Doherty (physiology and medicine) and fellows of the Royal Society David Solomon and David Boger all teach or research at Melbourne.'),
 (3, 'University of Sydney', 'Australia', 'https://sydney.edu.au/', 'Sydney', 42, 'img/uni_aus/uos.jpeg', 'Founded in 1851, the University of Sydney is the oldest university in Australia.  Currently, 45,000 students attend the University of Sydney, representing some 134 nations. About 280 overseas exchange programmes are in place with more than 30 countries.  No fewer than five Australian prime ministers attended the university, including Edmund Barton, who in 1901, won Australia’s first ever federal election.  Sydney is also considered one of the best university cities for students. '),
 (4, 'University of New South Wales (UNSW)', 'Australia', 'https://www.unsw.edu.au\r\n', 'Sydney', 45, 'img/uni_aus/unsw.jpg', 'UNSW Sydney was established in 1949.   There are more than 52,000 students at the university, including 13,000 international students from 130 countries.  The university has more than 200 agreements with universities in 39 countries to facilitate student exchanges and research projects.   The university recently launched the Michael Crouch Innovation Centre, which aims to support students to design and experiment with business ideas. The team then helps students turn their ideas into reality through partnerships with commercial companies.'),
 (5, 'University of Queensland (UQ)', 'Australia', 'https://www.uq.edu.au', 'Brisbane', 48, 'img/uni_aus/uq.jpg', 'The motto of the University of Queensland (UQ) motto is Scientia ac Labore, which is Latin for “by means of knowledge and hard work” – so be prepared to do some grafting!  UQ has about 39,000 students enrolled, including 12,000 international students from 141 countries. It also has one of Australia’s largest PhD cohorts with about 13,800 postgraduate students registered.  Famous graduates include a Nobel laureate, two Fortune 500 company CEOs, Oscar winner Geoffrey Rush and poet Bronwyn Lea.    The university’s main campus is located in the green and leafy inner Brisbane suburb of St Lucia – one of the most affluent areas of the city.'),
-(6, 'Monash University', 'Australia', 'https://www.monash.edu', 'Melbourne', 59, 'img/uni_aus/monash.jpg', 'Monash University was founded in 1958 and is the second oldest university in the state of Victoria in Australia. It is also the largest university in Australia. It was named after the engineer, military leader and public administrator Sir John Monash.  It is a member of the Group of Eight, a group of Australia\'s eight leading research universities.  Students can choose from more than 6,000 course across 10 faculties: art, design and architecture, arts, business and economics, education, engineering, information technology, law, medicine, nursing and health sciences, pharmacy and pharmaceutical sciences and science.  The university has many campuses across Victoria and Australia as well as international campuses in Malaysia, Italy, India and China. Monash University Library currently operates several libraries at all of its campuses, in Victoria and internationally and houses over 3.2 million items.  Famous alumni include musician Nick Cave, Booker Prize-winning novelist Peter Carey, and playwright David Williamson.'),
-(7, 'University of Western Australia (UWA)', 'Australia', 'https://www.uwa.edu.au', 'Perth', 91, 'img/uni_aus/uwa.jpeg', 'The University of Western Australia (UWA) is one of Australia’s “sandstone universities”: universities dating back a century or more. UWA is the youngest of the sandstones, having been founded in 1911. It was the first university in the state of Western Australia.    Australian Prime Minister Bob Hawke, comedian Tim Minchin and Nobel Prize winning medic Barry Marshall are among UWA’s alumni.  UWA’s main campus is located in Perth, the capital city of Western Australia. The central business district is just ten minutes away from UWA. Students don’t have to venture far to find entertainment and amenities as the campus has its own hairdresser, weekly market, dentist, bank and outdoor cinema, among other facilities. The Matilda Bay nature reserve and Swan River border the campus, and the beach is a short distance away.  Each year students raise thousands of dollars through Prosh, an annual charity event in which students dress in costume and walk around Perth selling a satirical newspaper. The paper is written by students and mocks current events and political figures. The Prosh tradition dates back to 1931.'),
+(6, 'Monash University', 'Australia', 'https://www.monash.edu', 'Melbourne', 59, 'img/uni_aus/monash.jpg', 'Monash University was founded in 1958 and is the second oldest university in the state of Victoria in Australia. It is also the largest university in Australia. It was named after the engineer, military leader and public administrator Sir John Monash.  It is a member of the Group of Eight, a group of Australia\'s eight leading research universities.  Students can choose from more than 6,000 course across 10 faculties: art, design and architecture, arts, business and economics, education, engineering, information technology, law, medicine, nursing and health sciences, pharmacy and pharmaceutical sciences and science.  The university has many campuses across Victoria and Australia as well as international campuses in Malaysia, Italy, India and China.  '),
+(7, 'University of Western Australia (UWA)', 'Australia', 'https://www.uwa.edu.au', 'Perth', 91, 'img/uni_aus/uwa.jpeg', 'The University of Western Australia (UWA) is one of Australia’s “sandstone universities”: universities dating back a century or more. UWA is the youngest of the sandstones, having been founded in 1911. It was the first university in the state of Western Australia.    Australian Prime Minister Bob Hawke, comedian Tim Minchin and Nobel Prize winning medic Barry Marshall are among UWA’s alumni.  UWA’s main campus is located in Perth, the capital city of Western Australia. The central business district is just ten minutes away from UWA. Students don’t have to venture far to find entertainment and amenities as the campus has its own hairdresser, weekly market, dentist, bank and outdoor cinema, among other facilities. The Matilda Bay nature reserve and Swan River border the campus, and the beach is a short distance away.  '),
 (8, 'University of Adelaide', 'Australia ', 'https://www.adelaide.edu.au', 'Adelaide', 114, 'img/uni_aus/uoa.jpg', 'Adelaide has 25,000 registered students (about 30 per cent of whom are international students from over 100 countries) and 3,600 members of staff. The university has four campuses located throughout South Australia and degree programmes are also offered in Singapore through its partnership with the Ngee Ann-Adelaide Education Centre. Other study abroad opportunities are available to students in Hong Kong, France, the Netherlands, and more.  The university claims associations with five Nobel laureates and 110 Rhodes scholars, as well as many other notable alumni, including Julia Gillard, the first female Prime Minister of Australia, and Robin Warren. It is a member of the Group of Eight association of Australia’s leading research-intensive universities, with degrees offered across five faculties: arts, engineering, computer and mathematical sciences, health sciences, as well as the professions and faculty of sciences. '),
 (9, 'University of Technology, Sydney (UTS)', 'Australia ', 'https://www.uts.edu.au', 'Sydney ', 160, 'img/uni_aus/uts.jpg', 'At the University of Technology Sydney, our vision is to be a world-leading university of technology. UTS is known for its practice-oriented teaching programs, focus on high-impact research, and strong, enduring partnerships with industry and the professions.  UTS has invested in world-class facilities to create an environment that supports innovative learning approaches. This \"campus of the future\", includes four new buildings, cutting-edge equipment, purpose-built facilities and increased public spaces to encourage collaboration.  UTS is part of the Australian Technology Network of universities: a group of five prominent universities committed to working with industry and government to deliver practical and professional courses.'),
 (10, 'University of Newcastle', 'Australia ', 'https://www.newcastle.edu.au', 'Newcastle', 214, 'img/uni_aus/unc.jpg', 'For over 50 years the University of Newcastle has delivered education to talented students from diverse backgrounds, developed professional leaders of the future and harnessed the capacity of world-class research to pursue solutions to the world’s greatest challenges. With over 37,000 students from 114 countries, and more than 143,000 alumni in 134 countries, the outlook is truly global. Their degrees focus on real-world experience, strong connections to industry, entrepreneurial opportunities and interactive teaching and learning.'),
@@ -104,17 +104,24 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(2, 'admin', 'admin@test.com', '81dc9bdb52d04dc20036dbd8313ed055');
+(2, 'admin', 'admin@test.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(3, 'pavan.singaraju', 'rahulreddy736@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `shortlisteduni`
+--
+ALTER TABLE `shortlisteduni`
+  ADD KEY `UNiversityID` (`UNiversityID`);
+
+--
 -- Indexes for table `universities`
 --
 ALTER TABLE `universities`
-  ADD PRIMARY KEY (`uni_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -130,13 +137,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `universities`
 --
 ALTER TABLE `universities`
-  MODIFY `uni_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `shortlisteduni`
+--
+ALTER TABLE `shortlisteduni`
+  ADD CONSTRAINT `shortlisteduni_ibfk_1` FOREIGN KEY (`UNiversityID`) REFERENCES `universities` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
