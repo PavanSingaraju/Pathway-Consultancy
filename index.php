@@ -1,7 +1,8 @@
 <?php
 session_start();
-$username = $_SESSION['username'];
-
+if (isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,42 +24,79 @@ $username = $_SESSION['username'];
 </head>
 
 <body id="page-top">
+<!-- Load Facebook SDK for JavaScript -->
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+     attribution=setup_tool
+     page_id="110171100657895"
+     theme_color="#ff4500"
+     logged_in_greeting="G'day! how can we assist you in your journey?"
+     logged_out_greeting="G'day! how can we assist you in your journey?">
+</div>
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="index.html#page-top">Pathway</a>
+        <img src="img/logo.png" style="width: 80px"; height="auto">
+        <a class="navbar-brand js-scroll-trigger" href="index.php#page-top" style="color:#ff4500!important;font-size:20px">Pathway</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive" >
-        <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services" id="drop">services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Explore Country</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="shortlisted.php">Shortlisted</a>
-            </li>
-          <li class="nav-item">
-              <p style="color: ghostwhite; margin-top: 6%; font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';text-transform: none">Logged In As : <a href="ExploreAustralia.php"><?php echo $username?></a></p>
-          </li>
-        </ul>
+          <ul class="navbar-nav text-uppercase ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="index.php#services" id="drop">services</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Explore Country</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="index.php#about">About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
+              </li>
+
+              <?php
+              if (isset($_SESSION['username'])){
+                  echo"<li class=\"nav-item\">
+                    <a class=\"nav-link js-scroll-trigger\" href=\"dashboard.php\">My Dashboard</a>
+                </li>";
+                  echo "<li class=\"nav-item\">
+                        <p style=\"color: ghostwhite; margin-top: 6%; font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';text-transform: none\">Logged In As : <a href=\"logout.php\"> $username</a></p>
+                    </li>";
+              }else{
+                  echo "<li class=\"nav-item\">
+            <a class=\"nav-link js-scroll-trigger\" href=\"login.php\">Login</a>
+          </li>";
+              }
+              ?>
+
+          </ul>
       </div>
     </div>
   </nav>
-
   <!-- Header -->
   <header class="masthead">
     <div class="container">
@@ -87,7 +125,7 @@ $username = $_SESSION['username'];
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-book fa-stack-1x fa-inverse" ></i>
           </span>
-          <h4 class="service-heading"><a href="#studentServices.html">Student Services</a></h4>
+          <h4 class="service-heading"><a href="StudentServices.php">Student Services</a></h4>
           <p class="text-muted">Talking with an Education Counsellor from Pathway Consultancy can help. You can tell us your career goals and we’ll provide you with expert guidance on the study choices that will get you there.</p>
         </div>
 
@@ -96,7 +134,7 @@ $username = $_SESSION['username'];
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-plane-arrival fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading"><a href="#migrationServices.html"> Migration Services</a></h4>
+          <h4 class="service-heading"><a href="MigrationServices.php"> Migration Services</a></h4>
           <p class="text-muted">Applying for a visa to study or live anywhere can be a confusing and complicated process with the ever-changing rules and documentation requirements. Our team of registered and experienced migration agents can offer comprehensive guidance and end to end management of your visa application for you.</p>
         </div>
       </div>
