@@ -17,7 +17,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html#page-top">Pathway</a>
+        <img src = "img/logo.png" style="  width: 80px!important; height:auto!important">
+        <a class="navbar-brand js-scroll-trigger" href="index.php#page-top">Pathway</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -25,19 +26,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive" >
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.html#services" id="drop">services</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php#services" id="drop">services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.html#portfolio">Explore Country</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Explore Country</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.html#about">About</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.html#team">Team</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php#team">Team</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.html#contact">Contact</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" style="color:#ff4500;" href="login.php">login</a>
