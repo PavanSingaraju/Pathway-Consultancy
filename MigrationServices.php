@@ -34,11 +34,36 @@ if (isset($_SESSION['username'])){
 </style>
 
 <body id="page-top">
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+     attribution=setup_tool
+     page_id="110171100657895"
+     theme_color="#ff4500"
+     logged_in_greeting="G'day! how can we assist you in your journey?"
+     logged_out_greeting="G'day! how can we assist you in your journey?">
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529;height:80px; font-size: 15px">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" <?php
-        if (isset($_SESSION['username'])){ echo "href='index.php'";}else echo "href='index.html#page-top'";?> style="color:#ff4500!important;font-size:20px">Pathway</a>
+        <img src="img/logo.png" style="width: 80px"; height="auto">
+        <a class="navbar-brand js-scroll-trigger" href="index.php#page-top" style="color:#ff4500!important;font-size:20px">Pathway</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -46,7 +71,7 @@ if (isset($_SESSION['username'])){
         <div class="collapse navbar-collapse" id="navbarResponsive" >
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.php#services" id="drop">services</a>
+                    <a class="nav-link js-scroll-trigger" style="color: #ff4500" href="index.php#services" id="drop">services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Explore Country</a>
@@ -63,12 +88,11 @@ if (isset($_SESSION['username'])){
 
                 <?php
                 if (isset($_SESSION['username'])){
-
+                    echo"<li class=\"nav-item\">
+                    <a class=\"nav-link js-scroll-trigger\" href=\"dashboard.php\">My Dashboard</a>
+                </li>";
                     echo "<li class=\"nav-item\">
-                        <a class=\"nav-link js-scroll-trigger\" href=\"shortlisted.php\">Shortlisted</a>
-                    </li>";
-                    echo "<li class=\"nav-item\">
-                        <p style=\"color: ghostwhite; margin-top: 6%; font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';text-transform: none\">Logged In As : <a href=\"logout.php\">$username</a></p>
+                        <p style=\"color: ghostwhite; margin-top: 6%; font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';text-transform: none\">Logged In As : <a href=\"logout.php\"> $username</a></p>
                     </li>";
                 }else{
                     echo "<li class=\"nav-item\">
@@ -81,7 +105,7 @@ if (isset($_SESSION['username'])){
         </div>
     </div>
 </nav>
-<header class="masthead" style="background-image:url('http://localhost/pathway/img/Migration_banner.jpg'); background-position: top;float: top; height: 70vh">
+<header class="masthead" style="background-image:url('img/migration_banner.jpg'); background-position: top;float: top; height: 70vh">
     <div class="container">
         <div class="intro-text">
 
