@@ -43,4 +43,14 @@ if (isset($_POST['reg_employee'])) {
         }
     }
 
-    
+    // Finally, register user if there are no errors in the form
+    if (count($errors) == 0) {
+
+
+
+        $query = "INSERT INTO Employee (username, email, role, workType, mobileNumber) 
+  			  VALUES('$username', '$email', '$role','$class','$mobile' )";
+        mysqli_query($db, $query);
+        header('location: ../Admin/index.php');
+    }
+} 
