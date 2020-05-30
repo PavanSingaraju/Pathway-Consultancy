@@ -3,6 +3,20 @@ session_start();
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
 }
+$db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
+$content =  "SELECT id,welcomeParagraph,ServicesHeader,StudentServicesParagraph,MigrationServicesParagraph,StudyInAustraliaParagraph,StudyInCanadaParagraph FROM HomePageContent where id = 1";
+$content_query = mysqli_query($db,$content);
+$content_rows = mysqli_fetch_assoc($content_query);
+$welcomeParagraph = $content_rows['welcomeParagraph'];
+$ServicesHeader = $content_rows['ServicesHeader'];
+$StudentServicesParagraph = $content_rows['StudentServicesParagraph'];
+$MigrationServicesParagraph = $content_rows['MigrationServicesParagraph'];
+$StudyInAustraliaParagraph = $content_rows['StudyInAustraliaParagraph'];
+$StudyInCanadaParagraph = $content_rows['StudyInCanadaParagraph'];
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,6 +100,10 @@ if (isset($_SESSION['username'])){
                   echo "<li class=\"nav-item\">
                         <p style=\"color: ghostwhite; margin-top: 6%; font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';text-transform: none\">Logged In As : <a href=\"logout.php\"> $username</a></p>
                     </li>";
+                  echo"<li class=\"nav-item\">
+                    <a class=\"nav-link js-scroll-trigger\" href=\"logout.php\">Logout</a>
+                </li>";
+
               }else{
                   echo "<li class=\"nav-item\">
             <a class=\"nav-link js-scroll-trigger\" href=\"login.php\">Login</a>
@@ -102,7 +120,7 @@ if (isset($_SESSION['username'])){
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in" style="color:#ff4500 ">Welcome To Pathway!</div>
-        <div class="intro-heading text">Work With a Consultancy That Gets It.</div>
+        <div class="intro-heading text"><?php echo $welcomeParagraph ?></div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         <br>
         <br>
@@ -116,7 +134,7 @@ if (isset($_SESSION['username'])){
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Your dedicated Pathway counsellor will work with you closely to prepare you for your study abroad journey and help you every step of the way.</h3>
+          <h3 class="section-subheading text-muted"><?php echo $ServicesHeader?></h3>
         </div>
       </div>
       <div class="row text-center">
@@ -126,7 +144,7 @@ if (isset($_SESSION['username'])){
             <i class="fas fa-book fa-stack-1x fa-inverse" ></i>
           </span>
           <h4 class="service-heading"><a href="StudentServices.php">Student Services</a></h4>
-          <p class="text-muted">Talking with an Education Counsellor from Pathway Consultancy can help. You can tell us your career goals and we’ll provide you with expert guidance on the study choices that will get you there.</p>
+          <p class="text-muted"><?php echo $StudentServicesParagraph?></p>
         </div>
 
         <div class="col-md-6">
@@ -135,7 +153,7 @@ if (isset($_SESSION['username'])){
             <i class="fas fa-plane-arrival fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading"><a href="MigrationServices.php"> Migration Services</a></h4>
-          <p class="text-muted">Applying for a visa to study or live anywhere can be a confusing and complicated process with the ever-changing rules and documentation requirements. Our team of registered and experienced migration agents can offer comprehensive guidance and end to end management of your visa application for you.</p>
+          <p class="text-muted"><?php echo $MigrationServicesParagraph?></p>
         </div>
       </div>
     </div>
@@ -162,7 +180,7 @@ if (isset($_SESSION['username'])){
           </a>
           <div class="portfolio-caption">
             <h4><a href="ExploreAustralia.php"> Study in Australia</a></h4>
-            <p class="text-muted">Over 1.4 million local and international students choose to study in Australia’s universities each year. They pursue a wide range of academic disciplines, from health and education to engineering and information technology.</p>
+            <p class="text-muted"><?php echo $StudyInAustraliaParagraph?></p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6 portfolio-item">
@@ -176,7 +194,7 @@ if (isset($_SESSION['username'])){
           </a>
           <div class="portfolio-caption">
             <h4><a href="ExploreCanada.php"> Study in Canada</a></h4>
-            <p class="text-muted">Canadian universities are known for their high quality and excellence in academic standards and are consistently ranked among the top universities internationally.</p>
+            <p class="text-muted"><?php echo $StudyInCanadaParagraph?></p>
           </div>
         </div>
       </div>
@@ -351,9 +369,9 @@ if (isset($_SESSION['username'])){
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Please fill out the below form for enquiries and we promise to be quick to revert.</h3>
-        </div>
+          <h2 class="section-heading text-uppercase">Book An Appointment</h2>
+          <h3 class="section-subheading text-muted" style="color:whitesmoke;">Please fill out and submit the below form for enquiries and we promise to be quick to revert.</h3>
+        </div>  
       </div>
       <div class="row">
         <div class="col-lg-12">
