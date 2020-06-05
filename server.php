@@ -2,13 +2,14 @@
 session_start();
 
 // initializing variables
+
 $username = "";
 $email    = "";
 $errors = array();
 
 // connect to the database
+//$db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
 $db = mysqli_connect('localhost', 'root', '', 'pathwayconsultancy');
-
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
     // receive all input values from the form
@@ -45,13 +46,14 @@ if (isset($_POST['reg_user'])) {
     // Finally, register user if there are no errors in the form
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
+        $admin1 = "No";
 
-        $query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+        $query = "INSERT INTO users (username, email, password, Admin) 
+  			  VALUES('$username', '$email', '$password','$admin1' )";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
-        header('location: index.php');
+        header('location: dashboard.php');
     }
 }
 if (isset($_POST['login_user'])) {
@@ -69,11 +71,24 @@ if (isset($_POST['login_user'])) {
         $password = md5($password);
         $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
         $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
+        $employeeQuery = "SELECT * FROM Employee WHERE username='$username' AND TempPassword='$password'";
+        $EmpResults = mysqli_query($db, $employeeQuery);
+        $rows = mysqli_fetch_array($results);
+        $admin = $rows['Admin'];
+        if (mysqli_num_rows($results) == 1 && $admin == "Yes") {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
-            header('location: index.php');
-        }else {
+            header('location: Admin/index.php');
+        }elseif (mysqli_num_rows($results) == 1 && $admin == "No"){
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: dashboard.php');
+        }elseif (mysqli_num_rows($EmpResults) == 1){
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: Employee/index.php');
+        }
+        else {
             array_push($errors, "Wrong username/password combination");
         }
     }

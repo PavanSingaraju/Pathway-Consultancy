@@ -53,14 +53,14 @@ $db_name ="pathwayconsultancy";*/
 
     <?php
     $host ="localhost";
-    $uname = "ictatjcu_cons1";
-    $pwd = '123zxc';
-    $db_name ="ictatjcu_cons1";
+    $uname = "root";
+    $pwd = '';
+    $db_name ="pathwayconsultancy";
     $file_path = 'photo/';
     $result = mysqli_connect($host,$uname,$pwd) or die("Could not connect to database." .mysqli_error());
     mysqli_select_db($result,$db_name) or die("Could not select the databse." .mysqli_error());
 
-    $students =  "SELECT id,username,email,Assigned_Employee FROM users where Admin = 'No'";
+    $students =  "SELECT id,username,email,Assigned_Employee,studentStatus FROM users where Admin = 'No'";
     $user_query = mysqli_query($result,$students);
     $Emp_query = "SELECT * FROM Employee where EmployeeID!=0";
     $Emp_query = mysqli_query($result,$Emp_query);
@@ -80,6 +80,8 @@ $db_name ="pathwayconsultancy";*/
       <th scope=\"col\">Employee_Name</th>
       <th scope=\"col\">Save</th>
       <th scope=\"col\">Send_Email_to_Employee</th>
+      <th scope=\"col\">Student Status</th>
+      
       
     </tr>
   </thead>
@@ -90,6 +92,7 @@ $db_name ="pathwayconsultancy";*/
         $user_id = $rows['id'];
         $user_email = $rows['email'];
         $employeeName = $rows['Assigned_Employee'];
+        $status = $rows['studentStatus'];
         $uni = "SELECT GROUP_CONCAT(UNiversityID) FROM shortlisteduni where StudentName = '".$user_name."'";
         $uni_query = mysqli_query($result,$uni);
         $x = mysqli_fetch_assoc($uni_query);
@@ -112,7 +115,7 @@ $db_name ="pathwayconsultancy";*/
         while ($value = $Emp_query1->fetch_assoc()) {
             echo '<option value="'.$value['EmployeeID'].'">'.$value['username'].'</option>';
         };
-        echo "</select></td><td><p id = ".$i." style =\"font-size: small\">".$employeeName."</p></td><td><button id=\"set\" style=\"background-color: green;padding: 5px 5px 5px 5px\" onclick=\"AssignEmployee($i, $user_id)\">Save</button></td><td><button onclick=\"SendNotificationEmail('$user_name', '$user_email', '$employeeEmail', '$x')\" style=\"background-color: green; padding: 5px 5px 5px 5px\">Send Mail</button></td></tr>";
+        echo "</select></td><td><p id = ".$i." style =\"font-size: small\">".$employeeName."</p></td><td><button id=\"set\" style=\"background-color: green;padding: 5px 5px 5px 5px\" onclick=\"AssignEmployee('$i', '$user_id', '$x', '$user_email', '$user_name')\">Save</button></td><td><button onclick=\"SendNotificationEmail('$user_name', '$user_email', '$employeeEmail', '$x')\" style=\"background-color: green; padding: 5px 5px 5px 5px\">Send Mail</button></td><td>".$status."</td></tr>";
 
         //$row['index'] the index here is a field name
         $i=$i+1;
@@ -147,6 +150,10 @@ $db_name ="pathwayconsultancy";*/
         <div class="input-group">
             <label>Contact Number</label>
             <input type="text" name="mobile" value="">
+        </div>
+        <div class="input-group">
+            <label>Temporary Password</label>
+            <input type="text" name="password" value="">
         </div>
         <div class="input-group">
             <button type="submit" class="btn" name="reg_employee">Register</button>
@@ -295,9 +302,12 @@ $db_name ="pathwayconsultancy";*/
 
 <script type="text/javascript">
 
-    function AssignEmployee(p,q) {
+    function AssignEmployee(p,q,r,s,t) {
         var EmpName = $('#diff'+p).find(':selected').html();
         var studentId = q;
+        var studentUnis = r;
+        var studentEmail = s;
+        var studentName = t;
         //var EmpID = $('#diff'+p).find(':selected').val();
         $('#'+p).empty().append(EmpName);
         $.ajax({
@@ -305,13 +315,20 @@ $db_name ="pathwayconsultancy";*/
                 url: "AssignEmployee.php",
                 data: {
                     EmployeeName:EmpName,
-                    StudentId:studentId
+                    StudentId:studentId,
+                    unis:studentUnis,
+                    studentEmail:studentEmail,
+                    studentName:studentName
+
                 }
             }
         );
 
         console.log(EmpName);
         console.log(studentId);
+        console.log(studentUnis);
+        console.log(studentEmail);
+        console.log(studentName);
 
 
 
@@ -322,10 +339,7 @@ $db_name ="pathwayconsultancy";*/
         var StudentName = StudentName;
         var studentEmail = studentEmail;
         var shortIds = shortIds;
-        console.log(EmployeeEmail);
-        console.log(StudentName);
-        console.log(studentEmail);
-        console.log(shortIds);
+
         Email.send({
             Host : "smtp-relay.sendinblue.com",
             Port : "587",

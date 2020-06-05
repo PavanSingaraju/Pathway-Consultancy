@@ -4,7 +4,11 @@ session_start();
 $username = $_SESSION['username'];
 
 $id = $_POST['id'];
-
+/*
+$host ="localhost";
+$uname = "ictatjcu_cons1";
+$pwd = '123zxc';
+$db_name ="ictatjcu_cons1";*/
 $host ="localhost";
 $uname = "root";
 $pwd = '';

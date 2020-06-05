@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
+$db = mysqli_connect('localhost', 'root', '', 'pathwayconsultancy');
 $section = $_POST['Section'];
 $content = $_POST['Content'];
 if ($section == "welcome"){

@@ -8,32 +8,31 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1VuUQhjOvJtrTa33D8na69YL48N" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="OPEN_URL_DIALOG">
+      <recent name="http://cons1.ictatjcub.com" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -52,35 +51,71 @@
       <workItem from="1578888722371" duration="168000" />
       <workItem from="1578955778767" duration="2557000" />
       <workItem from="1578993772170" duration="7285000" />
-      <workItem from="1579043164884" duration="1152000" />
+      <workItem from="1579043164884" duration="9300000" />
+      <workItem from="1579060241257" duration="13000" />
+      <workItem from="1579586890159" duration="15000" />
+      <workItem from="1579586960319" duration="16442000" />
+      <workItem from="1579671003250" duration="1239000" />
+      <workItem from="1579736355266" duration="492000" />
+      <workItem from="1579989808270" duration="2264000" />
+      <workItem from="1580525274803" duration="819000" />
+      <workItem from="1580682988333" duration="640000" />
+      <workItem from="1580710195100" duration="3254000" />
+      <workItem from="1580724082419" duration="15747000" />
+      <workItem from="1580901311468" duration="5553000" />
+      <workItem from="1586746645053" duration="640000" />
+      <workItem from="1586747668294" duration="14373000" />
+      <workItem from="1587435460977" duration="18000" />
+      <workItem from="1587554256898" duration="108000" />
+      <workItem from="1587555159560" duration="2247000" />
+      <workItem from="1587626230148" duration="17257000" />
+      <workItem from="1588199293603" duration="13000" />
+      <workItem from="1589070537016" duration="1494000" />
+      <workItem from="1589101571228" duration="11611000" />
+      <workItem from="1589691293489" duration="20843000" />
+      <workItem from="1589944141642" duration="274000" />
+      <workItem from="1589944720569" duration="1410000" />
+      <workItem from="1590032889888" duration="2587000" />
+      <workItem from="1590303382596" duration="16017000" />
+      <workItem from="1590574277291" duration="7949000" />
+      <workItem from="1590725171022" duration="595000" />
+      <workItem from="1590919620411" duration="774000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="497" y="296" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578803779399">
-      <screen x="0" y="0" width="1504" height="972" />
+    <state x="2639" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589096641994">
+      <screen x="2256" y="0" width="1858" height="1080" />
     </state>
-    <state x="497" y="296" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1504.972@0.0.1504.972" timestamp="1578803779399" />
-    <state x="2996" y="282" key="FileChooserDialogImpl" timestamp="1578888887590">
+    <state x="2639" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1504.972/2256.0.1858.1080@2256.0.1858.1080" timestamp="1589096641994" />
+    <state x="2890" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589708654592">
       <screen x="2256" y="0" width="1920" height="1050" />
     </state>
-    <state x="2996" y="282" key="FileChooserDialogImpl/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1578888887590" />
-    <state x="589" y="418" key="NewPhpFileDialog" timestamp="1579000908977">
-      <screen x="0" y="0" width="1504" height="972" />
+    <state x="2870" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1504.972/2256.0.1858.1080@2256.0.1858.1080" timestamp="1587635142830" />
+    <state x="2890" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1589708654592" />
+    <state x="2973" y="290" key="FileChooserDialogImpl" timestamp="1589691896636">
+      <screen x="2256" y="0" width="1858" height="1080" />
     </state>
-    <state x="589" y="418" key="NewPhpFileDialog/0.0.1504.972@0.0.1504.972" timestamp="1579000908977" />
-    <state x="2845" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1579043165639">
+    <state x="2973" y="290" key="FileChooserDialogImpl/0.0.1504.972/2256.0.1858.1080@2256.0.1858.1080" timestamp="1589691896636" />
+    <state x="2996" y="282" key="FileChooserDialogImpl/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1588199304006" />
+    <state x="580" y="261" key="FileChooserDialogImpl/0.0.1504.972@0.0.1504.972" timestamp="1587601032960" />
+    <state x="2984" y="464" key="NewPhpFileDialog" timestamp="1590482787710">
+      <screen x="2256" y="0" width="1858" height="1080" />
+    </state>
+    <state x="2984" y="464" key="NewPhpFileDialog/0.0.1504.972/2256.0.1858.1080@2256.0.1858.1080" timestamp="1590482787710" />
+    <state x="3157" y="432" key="NewPhpFileDialog/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1589715537715" />
+    <state x="589" y="418" key="NewPhpFileDialog/0.0.1504.972@0.0.1504.972" timestamp="1587555793102" />
+    <state x="2845" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1588199294244">
       <screen x="2256" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="329" key="com.intellij.ide.util.TipDialog/0.0.1504.1003@0.0.1504.1003" timestamp="1578369853447" />
-    <state x="2845" y="345" key="com.intellij.ide.util.TipDialog/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1579043165639" />
-    <state x="461" y="319" key="com.intellij.ide.util.TipDialog/0.0.1504.972@0.0.1504.972" timestamp="1578799897617" />
-    <state x="2923" y="166" width="585" height="717" key="find.popup" timestamp="1578958012894">
-      <screen x="2256" y="0" width="1920" height="1050" />
+    <state x="2845" y="345" key="com.intellij.ide.util.TipDialog/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1588199294244" />
+    <state x="461" y="319" key="com.intellij.ide.util.TipDialog/0.0.1504.972@0.0.1504.972" timestamp="1587555166180" />
+    <state x="2841" y="250" key="run.anything.popup" timestamp="1587630397513">
+      <screen x="2256" y="0" width="1858" height="1080" />
     </state>
-    <state x="2923" y="166" width="585" height="717" key="find.popup/0.0.1504.972/2256.0.1920.1050@2256.0.1920.1050" timestamp="1578958012894" />
+    <state x="2841" y="250" key="run.anything.popup/0.0.1504.972/2256.0.1858.1080@2256.0.1858.1080" timestamp="1587630397513" />
   </component>
 </project>

@@ -3,7 +3,9 @@ session_start();
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
 }
-$db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
+$db = mysqli_connect('localhost', 'root', '', 'pathwayconsultancy');
+
+//$db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
 $content =  "SELECT id,welcomeParagraph,ServicesHeader,StudentServicesParagraph,MigrationServicesParagraph,StudyInAustraliaParagraph,StudyInCanadaParagraph FROM HomePageContent where id = 1";
 $content_query = mysqli_query($db,$content);
 $content_rows = mysqli_fetch_assoc($content_query);
@@ -198,6 +200,36 @@ $StudyInCanadaParagraph = $content_rows['StudyInCanadaParagraph'];
           </div>
         </div>
       </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="TrendingCoursesAus.php">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fas fa-book-open fa-3x" ></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/course_aus.jpg">
+                </a>
+                <div class="portfolio-caption">
+                    <h4><a href="TrendingCoursesAus.php"> Courses in Australia</a></h4>
+                    <p class="text-muted">Browse the Top 5 Trending Courses in Australia at the moment.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="TrendingCoursesCan.php">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fas fa-book-open fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/course_can.jpg">
+                </a>
+                <div class="portfolio-caption">
+                    <h4><a href="TrendingCoursesCan.php"> Courses in Canada</a></h4>
+                    <p class="text-muted">Browse the Top 5 Trending Courses in Canada at the moment.</p>
+                </div>
+            </div>
+        </div>
     </div>
   </section>
 
@@ -363,7 +395,6 @@ $StudyInCanadaParagraph = $content_rows['StudyInCanadaParagraph'];
   <br>
 
 
-
   <!-- Contact -->
   <section class="page-section" id="contact">
     <div class="container">
@@ -371,36 +402,37 @@ $StudyInCanadaParagraph = $content_rows['StudyInCanadaParagraph'];
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Book An Appointment</h2>
           <h3 class="section-subheading text-muted" style="color:whitesmoke;">Please fill out and submit the below form for enquiries and we promise to be quick to revert.</h3>
-        </div>  
+        </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <form id="contactForm" name="sentMessage" novalidate="novalidate">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
+            <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post" action="bookAppointment.php">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="message" placeholder="Additional comments" required="required" data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" onclick="bookedAppointment()">Book</button>
               </div>
             </div>
           </form>
@@ -453,6 +485,17 @@ $StudyInCanadaParagraph = $content_rows['StudyInCanadaParagraph'];
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="js/agency.min.js"></script>
+<script type="text/javascript">
+
+    function bookedAppointment() {
+        var message = "All done with the booking!";
+        $('#sendMessageButton').empty().append(message);
+
+    }
+
+
+</script>
+
 </body>
 
 </html>

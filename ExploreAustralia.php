@@ -120,14 +120,15 @@ if(isset($_SESSION['username'])){
     <h3>Top Universities in Australia 2020</h3>
 
         <?php
+        /*
         $host ="localhost";
         $uname = "ictatjcu_cons1";
         $pwd = '123zxc';
-        $db_name ="ictatjcu_cons1";
-        /*$host ="localhost";
+        $db_name ="ictatjcu_cons1";*/
+        $host ="localhost";
         $uname = "root";
         $pwd = '';
-        $db_name ="pathwayconsultancy";*/
+        $db_name ="pathwayconsultancy";
 
         $file_path = 'photo/';
         $result = mysqli_connect($host,$uname,$pwd) or die("Could not connect to database." .mysqli_error());

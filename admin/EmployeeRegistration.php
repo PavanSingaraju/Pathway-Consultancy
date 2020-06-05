@@ -8,7 +8,7 @@ $email    = "";
 $errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
+$db = mysqli_connect('localhost', 'root', '', 'pathwayconsultancy');
 //$db = mysqli_connect('localhost', 'root', '', 'pathwayconsultancy');
 // REGISTER USER
 if (isset($_POST['reg_employee'])) {
@@ -18,6 +18,7 @@ if (isset($_POST['reg_employee'])) {
     $role = mysqli_real_escape_string($db, $_POST['role']);
     $class = mysqli_real_escape_string($db, $_POST['work_type']);
     $mobile = mysqli_real_escape_string($db, $_POST['mobile']);
+    $tempPasswrd = mysqli_real_escape_string($db, $_POST['password']);
 
     // form validation: ensure that the form is correctly filled ...
     // by adding (array_push()) corresponding error unto $errors array
@@ -26,6 +27,7 @@ if (isset($_POST['reg_employee'])) {
     if (empty($role)) { array_push($errors, "Work Role is required"); }
     if (empty($class)) { array_push($errors, "Work type is required");}
     if (empty($mobile)) { array_push($errors, "Contact No. is required");}
+    if (empty($tempPasswrd)) { array_push($errors, "Temporary Password is required");}
 
     // first check the database to make sure
     // a user does not already exist with the same username and/or email
@@ -45,11 +47,12 @@ if (isset($_POST['reg_employee'])) {
 
     // Finally, register user if there are no errors in the form
     if (count($errors) == 0) {
+        $tempPasswrd = md5($tempPasswrd);
 
 
 
-        $query = "INSERT INTO Employee (username, email, role, workType, mobileNumber) 
-  			  VALUES('$username', '$email', '$role','$class','$mobile' )";
+        $query = "INSERT INTO Employee (username, email, role, workType, mobileNumber, TempPassword) 
+  			  VALUES('$username', '$email', '$role','$class','$mobile','$tempPasswrd' )";
         mysqli_query($db, $query);
         header('location: ../Admin/index.php');
     }

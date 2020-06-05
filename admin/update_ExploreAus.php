@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $city = $_POST['city'];
                 $description = $_POST['description'];
                 $img = "img/uni_aus/$filename";
-                $db = mysqli_connect('localhost', 'ictatjcu_cons1', '123zxc', 'ictatjcu_cons1');
+                $db = mysqli_connect('localhost', 'root', '', 'pathwayconsultancy');
                 $query = "INSERT INTO universities (name, country, url, city, world_ranking, img, description) 
   			  VALUES('$UniName', 'Australia', '$url','$city','$worldRanking', '$img','$description' )";
                 mysqli_query($db, $query);
